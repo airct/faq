@@ -31,15 +31,15 @@ class Faq extends CI_Controller {
 		
 		$faqdata = $this->faq->find_all($page, $page_limit);
 		
-		$pagination_config['base_url'] 		= base_url() . 'index.php/faq/lists/page/';
-		$pagination_config['total_rows'] 	= $this->faq->page_total();
-		$pagination_config['per_page'] 		= $page_limit; 
-		$pagination_config['uri_segment']	= 4; 
-		$pagination_config['anchor_class'] 	= "fg-button ui-button ui-state-default"; 
-
-		$pagination_config['use_page_numbers'] = TRUE;
+		$pagination_config['base_url'] 			= base_url() . 'index.php/faq/lists/page/';
+		$pagination_config['total_rows'] 		= $this->faq->page_total();
+		$pagination_config['per_page'] 			= $page_limit; 
+		$pagination_config['uri_segment']		= 4; 
+		$pagination_config['use_page_numbers'] 	= TRUE;
 		
-		$this->load->library('pagination',	 	$pagination_config );
+		$this->load->library('pagination');
+		$this->pagination->initialize($pagination_config); 
+		
 		$this->smarty->assign("pageBar", 		$this->pagination->create_links() );
 		
 		$this->smarty->assign("faqdata", 		$faqdata );
@@ -60,15 +60,15 @@ class Faq extends CI_Controller {
 		
 		$faqdata = $this->faq->find_all($page, $page_limit);
 		
-		$pagination_config['base_url'] 		= base_url() . 'index.php/faq/lists/page/';
-		$pagination_config['total_rows'] 	= $this->faq->page_total();
-		$pagination_config['per_page'] 		= $page_limit; 
-		$pagination_config['uri_segment']	= 4; 
-		$pagination_config['anchor_class'] 	= "fg-button ui-button ui-state-default"; 
-
-		$pagination_config['use_page_numbers'] = TRUE;
+		$pagination_config['base_url'] 			= base_url() . 'index.php/faq/lists/page/';
+		$pagination_config['total_rows'] 		= $this->faq->page_total();
+		$pagination_config['per_page'] 			= $page_limit; 
+		$pagination_config['uri_segment']		= 4; 
+		$pagination_config['use_page_numbers'] 	= TRUE;
 		
-		$this->load->library('pagination',	 	$pagination_config );
+		$this->load->library('pagination');
+		$this->pagination->initialize($pagination_config); 
+		
 		$this->smarty->assign("pageBar", 		$this->pagination->create_links() );
 		
 		$this->smarty->assign("faqdata", 		$faqdata );
