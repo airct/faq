@@ -21,30 +21,7 @@ class Faq extends CI_Controller {
 	// Deprecated 
 	public function index()
 	{
-		$this->load->model('Faq_model', 'faq');
-		
-		$uri_assoc 	= $this->uri->uri_to_assoc();
-		$page = empty($uri_assoc['page'])?"1":$uri_assoc['page'];
-		
-		$page_limit = 10;
-		$page = $page - 1;
-		
-		$faqdata = $this->faq->find_all($page, $page_limit);
-		
-		$pagination_config['base_url'] 			= base_url() . 'index.php/faq/lists/page/';
-		$pagination_config['total_rows'] 		= $this->faq->page_total();
-		$pagination_config['per_page'] 			= $page_limit; 
-		$pagination_config['uri_segment']		= 4; 
-		$pagination_config['use_page_numbers'] 	= TRUE;
-		
-		$this->load->library('pagination');
-		$this->pagination->initialize($pagination_config); 
-		
-		$this->smarty->assign("pageBar", 		$this->pagination->create_links() );
-		
-		$this->smarty->assign("faqdata", 		$faqdata );
-			
-		$this->smarty->view( 'faq_list.html' );
+		$this->lists();
 	}
 	
 	
