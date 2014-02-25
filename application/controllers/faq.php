@@ -69,6 +69,8 @@ class Faq extends CI_Controller {
 			
 			if($faq_id) {
 				
+				// need validation
+				
 				$faq_data['faq_title'] 			= $post_data['title'];
 				$faq_data['faq_description'] 	= $post_data['description'];
 				$faq_data['faq_solution'] 		= $post_data['solution'];
